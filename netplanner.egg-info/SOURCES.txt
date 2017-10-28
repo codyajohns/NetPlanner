@@ -7,3 +7,14 @@ netplanner.egg-info/SOURCES.txt
 netplanner.egg-info/dependency_links.txt
 netplanner.egg-info/requires.txt
 netplanner.egg-info/top_level.txt
+netplanner/static/calendar.js
+netplanner/static/style.css
+netplanner/templates/add_event.html
+netplanner/templates/add_note.html
+netplanner/templates/index.html
+netplanner/templates/layout.html
+netplanner/templates/login.html
+netplanner/templates/partials/footer.html
+netplanner/templates/partials/header.html
+netplanner/templates/partials/monthly.html
+netplanner/templates/partials/weekly.html
