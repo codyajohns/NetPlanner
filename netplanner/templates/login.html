@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="ui text container">
+    <div class="ui segment">
+        <form class="ui form" action="{{ url_for ('login') }}" method=post>
+            <div class="field">
+                <div class="ui left icon input">
+                    <input type="text" placeholder="Username" name="username">
+                    <i class="user icon"></i>
+                </div>
+            </div>
+            <div class="field">
+                <div class="ui left icon input">
+                    <input type="password" placeholder="Password" name="password">
+                    <i class="privacy icon"></i>
+                </div>
+            </div>
+            <button class="ui positive icon button" type="submit">
+                <i class="sign in icon"></i>
+                Login
+            </button>
+        </form>
+    </div>
+</div>
+{% endblock %}

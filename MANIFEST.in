@@ -1,0 +1,3 @@
+graft netplanner/templates
+graft netplanner/static
+include netplanner/schema.sql

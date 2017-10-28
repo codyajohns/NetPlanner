@@ -1,0 +1,52 @@
+<div class="ui inverted vertical segment">
+    <div class="ui container">
+        <div class="ui inverted text menu">
+             <a class="item" href="{{ url_for ('index') }}">
+                 <div class="ui inverted header">
+                     Net Planner
+                 </div>
+             </a>
+            <a class="item">
+                Monthly
+            </a>
+            <a class="item">
+                Weekly
+            </a>
+            <a class="item">
+                Daily
+            </a>
+            <div class="item">
+                <div class="ui dropdown">
+                    <div class="text">
+                        Add
+                    </div>
+                    <i class="dropdown icon"></i>
+                    <div class="menu">
+                        <a class="item" href="{{ url_for ('add_event') }}">
+                            Event
+                        </a>
+                        <a class="item" href="{{ url_for ('add_note') }}">
+                            Note
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="right menu">
+                {% if session.get('logged_in') %}
+                <a class="item">
+                    Account
+                </a>
+                <a class="ui negative icon button" href="{{ url_for ('logout') }}">
+                    Log Out
+                    <i class = "sign out icon"></i>
+                </a>
+                {% else %}
+                    <a class="ui positive icon button" href="{{ url_for ('login') }}">
+                        <i class = "sign in icon"></i>
+                        Log In
+                    </a>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>

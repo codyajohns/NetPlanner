@@ -1,0 +1,17 @@
+html, body {
+  height: 100%;
+}
+body {
+  display: flex;
+  flex-direction: column;
+}
+.content {
+  flex: 1 0 auto;
+    margin-top: 1.5em;
+}
+header {
+    margin-bottom: 1.5em;
+}
+footer {
+    margin-top: 5em;
+}

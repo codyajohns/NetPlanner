@@ -1,0 +1,37 @@
+<!doctype html>
+
+<html>
+    <head>
+        <title>NetPlanner</title>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.js"></script>
+        <script src="{{ url_for ('static', filename='calendar.js') }}"></script>
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}" >
+        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.css">
+    </head>
+    <body>
+        <header class="header">
+            {% include "partials/header.html" %}
+        </header>
+        {% for message in get_flashed_messages() %}
+        <div class="flash">
+            <div class="ui container">
+                <div class="ui icon message">
+                    <!--<i class="small checkmark icon"></i> -->
+                    <div class="content">
+                        {{message}}
+                    </div>
+                    <i class="green checkmark icon"></i>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+        <div class="content">
+            {% block content %}
+            {% endblock %}
+        </div>
+        <footer class="footer">
+            {% include "partials/footer.html" %}
+        </footer>
+    </body>
+</html>
