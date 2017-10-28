@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8fad05f6-d78e-4e0a-8b97-bcff2d32a838" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/netplanner.egg-info/SOURCES.txt" afterPath="$PROJECT_DIR$/netplanner.egg-info/SOURCES.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/netplanner/templates/add_event.html" afterPath="$PROJECT_DIR$/netplanner/templates/add_event.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/netplanner/templates/add_note.html" afterPath="$PROJECT_DIR$/netplanner/templates/add_note.html" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -14,11 +14,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="add_event.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="add_note.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/netplanner/templates/add_note.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="178">
+              <caret line="14" column="24" lean-forward="false" selection-start-line="14" selection-start-column="24" selection-end-line="14" selection-end-column="24" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="add_event.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/netplanner/templates/add_event.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="333">
-              <caret line="41" column="82" lean-forward="false" selection-start-line="41" selection-start-column="82" selection-end-line="41" selection-end-column="82" />
+            <state relative-caret-position="224">
+              <caret line="15" column="16" lean-forward="true" selection-start-line="15" selection-start-column="16" selection-end-line="19" selection-end-column="22" />
               <folding />
             </state>
           </provider>
@@ -33,6 +43,7 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/netplanner/templates/add_event.html" />
+        <option value="$PROJECT_DIR$/netplanner/templates/add_note.html" />
       </list>
     </option>
   </component>
@@ -176,8 +187,16 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/netplanner/templates/add_event.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="333">
-          <caret line="41" column="82" lean-forward="false" selection-start-line="41" selection-start-column="82" selection-end-line="41" selection-end-column="82" />
+        <state relative-caret-position="224">
+          <caret line="15" column="16" lean-forward="true" selection-start-line="15" selection-start-column="16" selection-end-line="19" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/netplanner/templates/add_note.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="178">
+          <caret line="14" column="24" lean-forward="false" selection-start-line="14" selection-start-column="24" selection-end-line="14" selection-end-column="24" />
           <folding />
         </state>
       </provider>
