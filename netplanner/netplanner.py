@@ -81,17 +81,42 @@ def login():
             return redirect(url_for('index'))
     return render_template('login.html', error=error)
 
+
 @app.route('/logout')
 def logout():
     session.pop('logged_in', None)
     flash('Successfully logged out.')
     return redirect(url_for('index'))
 
-@app.route('/add_event')
+
+@app.route('/add_event', methods=['GET', 'POST'])
 def add_event():
-    return render_template('add_event.html')
+    error = None
+    if request.method == 'POST':
+        db = get_db()
+        db.execute('INSERT INTO events (title, description) VALUES (?, ?)', [request.form["event_name"], request.form["event_description"]])
+        db.commit()
+        return redirect(url_for("index"))
+    return render_template('add_event.html', error=error)
+
 
 @app.route('/add_note')
 def add_note():
     return render_template('add_note.html')
 
+
+
+@app.route('/events')
+def events():
+    db = get_db()
+    cur = db.execute('SELECT * FROM events')
+    events = cur.fetchall()
+    return render_template('events.html', events=events)
+
+
+@app.route('/notes')
+def notes():
+    db = get_db()
+    cur = db.execute('SELECT * FROM notes')
+    notes = cur.fetchall()
+    return render_template('notes.html', notes=notes)
