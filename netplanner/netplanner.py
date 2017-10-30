@@ -94,3 +94,4 @@ def add_event():
 @app.route('/add_note')
 def add_note():
     return render_template('add_note.html')
+
