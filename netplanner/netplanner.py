@@ -94,7 +94,12 @@ def add_event():
     error = None
     if request.method == 'POST':
         db = get_db()
-        db.execute('INSERT INTO events (title, description) VALUES (?, ?)', [request.form["event_name"], request.form["event_description"]])
+        db.execute('INSERT INTO events (title, description, start_time, end_time) VALUES (?, ?, ?, ?)',
+                   [request.form["event_name"],
+                    request.form["event_description"],
+                    request.form["start_time"],
+                    request.form["end_time"]
+                    ])
         db.commit()
         return redirect(url_for("index"))
     return render_template('add_event.html', error=error)

@@ -12,21 +12,30 @@
                 <textarea type="text" placeholder="Event description...." name="event_description"></textarea>
             </div>
 
-            <div class="field">
-                <label>Start Time</label>
-                <div class="ui left icon input">
-                    <input type="text" name="start_time">
-                    <i class="hourglass start icon"></i>
+            <div class="two fields">
+                <div class="field">
+                    <label>Start Time</label>
+                    <div class="ui calendar" id="rangestart">
+                        <div class="ui left icon input">
+                            <input type="text" name="start_time">
+                            <i class="hourglass start icon"></i>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="field">
+                    <label>End Time</label>
+                    <div class="ui calendar" id="rangeend">
+                        <div class="ui left icon input">
+                            <input type="text" name="end_time">
+                            <i class="hourglass end icon"></i>
+                        </div>
+                    </div>
+
                 </div>
             </div>
 
-            <div class="field">
-                <label>End Time</label>
-                <div class="ui left icon input">
-                    <input type="text" name="end_time">
-                    <i class="hourglass end icon"></i>
-                </div>
-            </div>
 
             <div class="ui two column grid">
                 <div class="column">
