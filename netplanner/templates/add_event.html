@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 {% block content %}
     <div class="ui text container">
-        <form class="ui add_event form" action="{{ url_for("add_event") }}" method="POST">
+        <form class="ui add_event form" action="{{ url_for("add_event") }}" method="POST" id="add-event-form">
             <div class="field">
                 <label>Event Name</label>
                 <input type="text" placeholder="Event Name" name="event_name">
@@ -9,7 +9,7 @@
 
             <div class="field">
                 <label>Event Description</label>
-                <textarea type="text" placeholder="Event description...." name="event_description"></textarea>
+                <textarea placeholder="Event description...." name="event_description"></textarea>
             </div>
 
             <div class="two fields">

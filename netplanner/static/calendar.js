@@ -13,20 +13,15 @@ $(document).ready(function() {
       startCalendar: $('#rangestart')
     });
 
-    $('submit-new-event').click(function() {
-        var startTime = $("#start_time").val()
-        var endTime = $("#end_time").val()
-        $.ajax ({
-            url: '/add_event',
-            data: $('form').serialize(),
-            type: 'POST',
-            success: function(response) {
-                console.log(response);
-            },
-            error: function(error) {
-                console.log(error);
-            }
-        });
+    $('#add-event-form').submit(function(e) {
+        e.preventDefault();
+
+        var start_epoch = document.getElementsByName("start_time")[0];
+        var end_epoch = document.getElementsByName("end_time")[0];
+        start_epoch.value = new Date (start_epoch.value).getTime();
+        end_epoch.value = new Date (end_epoch.value).getTime();
+
+        this.submit();
     });
 });
 
