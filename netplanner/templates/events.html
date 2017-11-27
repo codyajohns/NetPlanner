@@ -7,9 +7,24 @@
         <div class="ui very relaxed divided list">
             {% for event in events %}
                 <div class="item">
-                    <div class="header">
+                    {% if event.color == 1 %}
+                        <div class="ui blue label">
+                    {% elif event.color == 2 %}
+                        <div class="ui green label">
+                    {% elif event.color == 3 %}
+                        <div class="ui orange label">
+                    {% elif event.color == 4 %}
+                        <div class="ui purple label">
+                    {% elif event.color == 5 %}
+                        <div class="ui red label">
+                    {% elif event.color == 6 %}
+                        <div class="ui yellow label">
+                    {% else %}
+                        <div class="ui white label">
+                    {% endif %}
                         {{ event.title }}
                     </div>
+
                     <div class="content">
                         {{ event.description }}
                     </div>
