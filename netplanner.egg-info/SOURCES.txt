@@ -11,6 +11,7 @@ netplanner/static/calendar.js
 netplanner/static/style.css
 netplanner/templates/add_event.html
 netplanner/templates/add_note.html
+netplanner/templates/events.html
 netplanner/templates/index.html
 netplanner/templates/layout.html
 netplanner/templates/login.html
