@@ -1,6 +1,7 @@
 {% extends "layout.html" %}
 {% block content %}
-<div class="ui container">
+<div class="container">
+    <div class="row">
     <div class="ui large header">
         Welcome to NetPlanner! <i class ="child icon"></i>
     </div>
@@ -8,7 +9,6 @@
         <a class="item active" data-tab="monthly">
             Monthly
         </a>
-
          <a class="item" data-tab="weekly">
             Weekly
         </a>
@@ -30,6 +30,17 @@
               Demo Day! <i class="purple ui flag icon"></i>
           </div>
     </div>
-
 </div>
+</div>
+<div class="ui inverted vertical segment">
+        <div class="ui basic segment">
+            <div class="ui one item text menu">
+                <a class ="item" href="{{ url_for ('index') }}">
+                <div class ="ui inverted header">
+                    NetPlanner
+                </div>
+                </a>
+            </div>
+        </div>
+    </div>
 {% endblock %}

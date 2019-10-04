@@ -1,11 +1,14 @@
-<div class="ui inverted vertical segment">
-    <div class="ui basic segment">
-        <div class="ui one item text menu">
-            <a class ="item" href="{{ url_for ('index') }}">
-               <div class ="ui inverted header">
-                   NetPlanner
-               </div>
-            </a>
+{% extends "layout.html" %}
+{% block footer %}
+    <div class="ui inverted vertical segment">
+        <div class="ui basic segment">
+            <div class="ui one item text menu">
+                <a class ="item" href="{{ url_for ('index') }}">
+                <div class ="ui inverted header">
+                    NetPlanner
+                </div>
+                </a>
+            </div>
         </div>
     </div>
-</div>
+{% endblock %}

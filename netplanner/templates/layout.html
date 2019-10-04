@@ -1,39 +1,52 @@
-<!doctype html>
-
-<html>
-    <head>
-        <title>NetPlanner</title>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.js"></script>
-        <script src="https://cdn.rawgit.com/mdehoog/Semantic-UI-Calendar/76959c6f7d33a527b49be76789e984a0a407350b/dist/calendar.min.js"></script>
-        <script src="{{ url_for ('static', filename='calendar.js') }}"></script>
-        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}" >
-        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.css">
-        <link href="https://cdn.rawgit.com/mdehoog/Semantic-UI-Calendar/76959c6f7d33a527b49be76789e984a0a407350b/dist/calendar.min.css" rel="stylesheet" type="text/css" />
-    </head>
-    <body>
-        <header class="header">
-            {% include "partials/header.html" %}
-        </header>
-        {% for message in get_flashed_messages() %}
-        <div class="flash">
-            <div class="ui container">
-                <div class="ui icon message">
-                    <!--<i class="small checkmark icon"></i> -->
-                    <div class="content">
-                        {{message}}
-                    </div>
-                    <i class="green checkmark icon"></i>
-                </div>
-            </div>
+{% extends "bootstrap/base.html" %}
+{% block title %}NetPlanner{% endblock %}
+{% block head %}
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.css">
+<link href="https://cdn.rawgit.com/mdehoog/Semantic-UI-Calendar/76959c6f7d33a527b49be76789e984a0a407350b/dist/calendar.min.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}" >
+{{ super() }}
+{% endblock %}
+{% block scripts %}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.js"></script>
+    <script src="https://cdn.rawgit.com/mdehoog/Semantic-UI-Calendar/76959c6f7d33a527b49be76789e984a0a407350b/dist/calendar.min.js"></script>
+    <!-- <script src="{{ url_for ('static', filename='calendar.js') }}"></script> -->
+    {{ super() }}
+{% endblock %}
+{% block navbar %}
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">NetPlanner</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="{{ url_for ('index') }}">Home<span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{{ url_for ('events') }}">View Events</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Notes</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Add
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="{{ url_for ('add_event') }}">Event</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="{{ url_for ('add_note') }}">Note</a>
+              </div>
+            </li>
+          </ul>
+          <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+          </form>
         </div>
-        {% endfor %}
-        <div class="content">
-            {% block content %}
-            {% endblock %}
-        </div>
-        <footer class="footer">
-            {% include "partials/footer.html" %}
-        </footer>
-    </body>
-</html>
+      </nav>
+{% endblock %}
+{% block content %}
+{% endblock %}
