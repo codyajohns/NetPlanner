@@ -1,0 +1,97 @@
+{% extends "layout.html" %}
+{% block content %}
+    <div class="ui text container">
+        <form class="ui add_event form" action="{{ url_for("add_event") }}" method="POST" id="add-event-form">
+            <div class="field">
+                <label>Event Name</label>
+                <input type="text" placeholder="Event Name" name="event_name">
+            </div>
+
+            <div class="field">
+                <label>Event Description</label>
+                <textarea placeholder="Event description...." name="event_description"></textarea>
+            </div>
+
+            <div class="two fields">
+                <div class="field">
+                    <label>Start Time</label>
+                    <div class="ui calendar" id="rangestart">
+                        <div class="ui left icon input">
+                            <input type="text" name="start_time">
+                            <i class="hourglass start icon"></i>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="field">
+                    <label>End Time</label>
+                    <div class="ui calendar" id="rangeend">
+                        <div class="ui left icon input">
+                            <input type="text" name="end_time">
+                            <i class="hourglass end icon"></i>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="field">
+                <div class="ui selection dropdown">
+                    <input name="color" type="hidden">
+                    <i class="dropdown icon"></i>
+                    <div class="default text">Color</div>
+                    <div class="menu">
+                        <div class="item" data-value="0">
+                            None
+                        </div>
+                        <div class="item" data-value="1">
+                            <i class="blue square icon"></i>
+                            Blue
+                        </div>
+                        <div class="item" data-value="2">
+                            <i class="green square icon"></i>
+                            Green
+                        </div>
+                        <div class="item" data-value="3">
+                            <i class="orange square icon"></i>
+                            Orange
+                        </div>
+                        <div class="item" data-value="4">
+                            <i class="purple square icon"></i>
+                            Purple
+                        </div>
+                        <div class="item" data-value="5">
+                            <i class="red square icon"></i>
+                            Red
+                        </div>
+                        <div class="item" data-value="6">
+                            <i class="yellow square icon"></i>
+                            Yellow
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="ui two column grid">
+                <div class="column">
+                    <div class="ui center aligned basic segment">
+                        <button class="ui positive icon button">
+                            <i class="send icon"></i>
+                            Submit
+                        </button>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="ui center aligned basic segment">
+                        <a class="ui negative icon button" href="{{ url_for("index") }}">
+                            <i class="trash icon"></i>
+                            Cancel
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+{% endblock %}
