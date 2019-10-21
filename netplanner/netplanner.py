@@ -2,8 +2,9 @@
 import os
 import sqlite3
 from flask import Flask, request, session, g, redirect, url_for, abort, \
-     render_template, flash
+    render_template, flash
 from flask_bootstrap import Bootstrap
+from datetime import datetime
 
 app = Flask(__name__)  # create the application instance :)
 Bootstrap(app)
@@ -58,7 +59,16 @@ def initdb_command():
 
 @app.route('/')
 def index():
-    return render_template('index.html')
+    db = get_db()
+    cur = db.execute('SELECT * FROM events')
+    dbevents = cur.fetchall()
+    allevents = []
+    for idx, ev in enumerate(dbevents, start=0):
+        newentry = {'title': ev['title'], 'start_time': datetime.strptime(ev['start_time'], '%Y-%m-%d %H:%M:%S').date(),
+                    'end_time': datetime.strptime(ev['start_time'], '%Y-%m-%d %H:%M:%S').date()}
+        allevents.insert(idx, newentry)
+    today = datetime.today().strftime('%Y-%m-%d')
+    return render_template('index.html', allevents=allevents, today=today)
 
 
 @app.route('/users')
@@ -71,14 +81,14 @@ def users():
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
-    error=None
+    error = None
     if request.method == 'POST':
-        if request.form['username']!=app.config['USERNAME']:
-            error='invalid username'
-        elif request.form['password']!=app.config['PASSWORD']:
-            error='invalid password'
+        if request.form['username'] != app.config['USERNAME']:
+            error = 'invalid username'
+        elif request.form['password'] != app.config['PASSWORD']:
+            error = 'invalid password'
         else:
-            session['logged_in']=True
+            session['logged_in'] = True
             flash('Successfully logged in as Admin.')
             return redirect(url_for('index'))
     return render_template('login.html', error=error)
@@ -113,7 +123,6 @@ def add_note():
     return render_template('add_note.html')
 
 
-
 @app.route('/events')
 def events():
     db = get_db()
@@ -128,6 +137,7 @@ def notes():
     cur = db.execute('SELECT * FROM notes')
     notes = cur.fetchall()
     return render_template('notes.html', notes=notes)
+
 
 if __name__ == '__main__':
     app.run(debug=True)
