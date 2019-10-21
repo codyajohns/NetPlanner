@@ -3,8 +3,10 @@ import os
 import sqlite3
 from flask import Flask, request, session, g, redirect, url_for, abort, \
      render_template, flash
+from flask_bootstrap import Bootstrap
 
 app = Flask(__name__)  # create the application instance :)
+Bootstrap(app)
 app.config.from_object(__name__)  # load config from this file , flaskr.py
 
 # Load default config and override config from an environment variable
@@ -126,3 +128,6 @@ def notes():
     cur = db.execute('SELECT * FROM notes')
     notes = cur.fetchall()
     return render_template('notes.html', notes=notes)
+
+if __name__ == '__main__':
+    app.run(debug=True)

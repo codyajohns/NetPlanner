@@ -1,17 +1,17 @@
-<div class="ui inverted vertical segment">
-    <div class="ui container">
+{% extends "layout.html" %}
+{% block header %}
+<div class="container">
+<div class="row ui inverted vertical segment">
+    <div class="ui">
         <div class="ui inverted text menu">
              <a class="item" href="{{ url_for ('index') }}">
                  <div class="ui inverted header">
                      Net Planner
                  </div>
              </a>
-            <a class="item" href="{{ url_for("events") }}">
+            <a class="item" href="{{ url_for('events') }}">
                 View Events
             </a>
-            <!--<a class="item" href="{{ url_for("notes") }}">
-                View Notes
-            </a> -->
             <div class="item">
                 <div class="ui dropdown">
                     <div class="text">
@@ -47,3 +47,5 @@
         </div>
     </div>
 </div>
+</div>
+{% endblock %}
